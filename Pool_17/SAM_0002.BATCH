@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --export=NONE
+#SBATCH --ntasks=1
+#SBATCH --time=04:00:00
+#SBATCH --job-name=Pool17_0002_SAM
+echo -n "Running on host: "
+hostname
+echo "Alignment starting"
+/auto/pmd-02/slp/sm_513/bwa/bwa mem -x pacbio -o Pool17_0002.sam /auto/pmd-02/slp/sm_513/reference/chr19.fa Pool17_0002.ccs.fastq
+echo "conversion to bam file"
+/bin/samtools view -S -u Pool17_0002.sam | /bin/samtools sort - Pool17_0002
+echo "indexing bam file"
+/bin/samtools index Pool17_0002.bam
+echo "End of alignment sam creation"

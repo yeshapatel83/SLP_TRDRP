@@ -1,0 +1,178 @@
+#!/bin/bash
+#SBATCH --export=NONE
+#SBATCH --ntasks=1
+#SBATCH --time=04:00:00
+#SBATCH --job-name=Pool17_0006_ALEC_BAM
+source /usr/usc/python/2.7.8/setup.sh
+echo -n "Running on host: "
+hostname
+echo "ALEC CYP2A6"
+
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:40842930-40842934
+mv Pool17_0006.corrected.fasta temp00_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:40842936-40842948
+mv Pool17_0006.corrected.fasta temp01_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:40842950-40850993
+mv Pool17_0006.corrected.fasta temp02_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:40874836-40882778
+mv Pool17_0006.corrected.fasta temp03_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41087907-41087923
+mv Pool17_0006.corrected.fasta temp04_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41087925-41087947
+mv Pool17_0006.corrected.fasta temp05_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41087949-41088047
+mv Pool17_0006.corrected.fasta temp06_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088049-41088155
+mv Pool17_0006.corrected.fasta temp07_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088157-41088269
+mv Pool17_0006.corrected.fasta temp08_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088271-41088276
+mv Pool17_0006.corrected.fasta temp09_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088278-41088301
+mv Pool17_0006.corrected.fasta temp010_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088303-41088318
+mv Pool17_0006.corrected.fasta temp011_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088320-41088346
+mv Pool17_0006.corrected.fasta temp012_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088348-41088424
+mv Pool17_0006.corrected.fasta temp013_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088426-41088489
+mv Pool17_0006.corrected.fasta temp014_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088491-41088559
+mv Pool17_0006.corrected.fasta temp015_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088561-41088741
+mv Pool17_0006.corrected.fasta temp016_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088743-41088750
+mv Pool17_0006.corrected.fasta temp017_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088752-41088778
+mv Pool17_0006.corrected.fasta temp018_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088789-41088897
+mv Pool17_0006.corrected.fasta temp019_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088899-41088985
+mv Pool17_0006.corrected.fasta temp020_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41088988-41089102
+mv Pool17_0006.corrected.fasta temp021_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089104-41089147
+mv Pool17_0006.corrected.fasta temp022_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089149-41089248
+mv Pool17_0006.corrected.fasta temp023_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089250-41089305
+mv Pool17_0006.corrected.fasta temp024_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089309-41089374
+mv Pool17_0006.corrected.fasta temp025_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089376-41089413
+mv Pool17_0006.corrected.fasta temp026_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089415-41089442
+mv Pool17_0006.corrected.fasta temp027_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089444-41089452
+mv Pool17_0006.corrected.fasta temp028_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089454-41089460
+mv Pool17_0006.corrected.fasta temp029_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089462-41089520
+mv Pool17_0006.corrected.fasta temp030_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089522-41089531
+mv Pool17_0006.corrected.fasta temp031_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089533-41089581
+mv Pool17_0006.corrected.fasta temp032_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089583-41089739
+mv Pool17_0006.corrected.fasta temp033_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089741-41089918
+mv Pool17_0006.corrected.fasta temp034_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089920-41089968
+mv Pool17_0006.corrected.fasta temp035_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41089970-41090203
+mv Pool17_0006.corrected.fasta temp036_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090205-41090236
+mv Pool17_0006.corrected.fasta temp037_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090238-41090286
+mv Pool17_0006.corrected.fasta temp038_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090288-41090307
+mv Pool17_0006.corrected.fasta temp039_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090309-41090314
+mv Pool17_0006.corrected.fasta temp040_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090316-41090327
+mv Pool17_0006.corrected.fasta temp041_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090329-41090361
+mv Pool17_0006.corrected.fasta temp042_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090363-41090378
+mv Pool17_0006.corrected.fasta temp043_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090380-41090480
+mv Pool17_0006.corrected.fasta temp044_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090482-41090557
+mv Pool17_0006.corrected.fasta temp045_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090559-41090585
+mv Pool17_0006.corrected.fasta temp046_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090587-41090607
+mv Pool17_0006.corrected.fasta temp047_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090609-41090649
+mv Pool17_0006.corrected.fasta temp048_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090651-41090691
+mv Pool17_0006.corrected.fasta temp049_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090694-41090696
+mv Pool17_0006.corrected.fasta temp050_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090698-41090704
+mv Pool17_0006.corrected.fasta temp051_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090706-41090708
+mv Pool17_0006.corrected.fasta temp052_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090710-41090714
+mv Pool17_0006.corrected.fasta temp053_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090716-41090771
+mv Pool17_0006.corrected.fasta temp054_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090773-41090780
+mv Pool17_0006.corrected.fasta temp055_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090782-41090808
+mv Pool17_0006.corrected.fasta temp056_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090810-41090863
+mv Pool17_0006.corrected.fasta temp057_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090865-41090969
+mv Pool17_0006.corrected.fasta temp058_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41090971-41091037
+mv Pool17_0006.corrected.fasta temp059_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091039-41091059
+mv Pool17_0006.corrected.fasta temp060_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091061-41091068
+mv Pool17_0006.corrected.fasta temp061_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091070-41091080
+mv Pool17_0006.corrected.fasta temp062_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091082-41091092
+mv Pool17_0006.corrected.fasta temp063_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091094-41091114
+mv Pool17_0006.corrected.fasta temp064_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091116-41091148
+mv Pool17_0006.corrected.fasta temp065_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091150-41091185
+mv Pool17_0006.corrected.fasta temp066_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091190-41091198
+mv Pool17_0006.corrected.fasta temp067_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091200-41091528
+mv Pool17_0006.corrected.fasta temp068_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091530-41091545
+mv Pool17_0006.corrected.fasta temp069_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091547-41091582
+mv Pool17_0006.corrected.fasta temp070_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091584-41091593
+mv Pool17_0006.corrected.fasta temp071_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091595-41091609
+mv Pool17_0006.corrected.fasta temp072_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091611-41091725
+mv Pool17_0006.corrected.fasta temp073_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091727-41091929
+mv Pool17_0006.corrected.fasta temp074_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41091931-41092062
+mv Pool17_0006.corrected.fasta temp075_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41092064-41092281
+mv Pool17_0006.corrected.fasta temp076_Pool17_0006.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool17_0006.sam -x pacbio_ccs -t chr19:41092283-41092339
+mv Pool17_0006.corrected.fasta temp077_Pool17_0006.corrected.fasta
+
+
+cat temp*0006*>Pool17_0006_corrected.fasta
+echo "re-alignment started"
+/auto/pmd-02/slp/sm_513/bwa/bwa mem -x pacbio -o Pool17_0006_corrected.sam /auto/pmd-02/slp/sm_513/reference/chr19.fa Pool17_0006_corrected.fasta
+echo "conversion to bam file"
+/bin/samtools view -S -u Pool17_0006_corrected.sam | /bin/samtools sort - Pool17_0006_corrected
+echo "indexing bam file"
+/bin/samtools index Pool17_0006_corrected.bam
+echo "End of re-alignment/bam creation"
+
+rm -rf temp*0006*
