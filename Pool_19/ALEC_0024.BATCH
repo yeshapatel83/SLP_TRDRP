@@ -1,0 +1,36 @@
+#!/bin/bash
+#SBATCH --export=NONE
+#SBATCH --ntasks=1
+#SBATCH --time=04:00:00
+#SBATCH --job-name=Pool16_0024_ALEC_BAM
+source /usr/usc/python/2.7.8/setup.sh
+echo -n "Running on host: "
+hostname
+echo "ALEC CYP2A6"
+
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0024.sam -x pacbio_ccs -t chr19:40842952-40850993
+mv Pool19_0024.corrected.fasta temp00_Pool19_0024.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0024.sam -x pacbio_ccs -t chr19:40874836-40882778
+mv Pool19_0024.corrected.fasta temp01_Pool19_0024.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0024.sam -x pacbio_ccs -t chr19:41087907-41089040
+mv Pool19_0024.corrected.fasta temp02_Pool19_0024.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0024.sam -x pacbio_ccs -t chr19:41089044-41089044
+mv Pool19_0024.corrected.fasta temp03_Pool19_0024.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0024.sam -x pacbio_ccs -t chr19:41089046-41089053
+mv Pool19_0024.corrected.fasta temp04_Pool19_0024.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0024.sam -x pacbio_ccs -t chr19:41089055-41089075
+mv Pool19_0024.corrected.fasta temp05_Pool19_0024.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0024.sam -x pacbio_ccs -t chr19:41096211-41096782
+mv Pool19_0024.corrected.fasta temp06_Pool19_0024.corrected.fasta
+
+
+cat temp*0024*>Pool16_0024_corrected.fasta
+echo "re-alignment started"
+/auto/pmd-02/slp/sm_513/bwa/bwa mem -x pacbio -o Pool16_0024_corrected.sam /auto/pmd-02/slp/sm_513/reference/chr19.fa Pool16_0024_corrected.fasta
+echo "conversion to bam file"
+/bin/samtools view -S -u Pool16_0024_corrected.sam | /bin/samtools sort - Pool16_0024_corrected
+echo "indexing bam file"
+/bin/samtools index Pool16_0024_corrected.bam
+echo "End of re-alignment/bam creation"
+
+rm -rf temp*0024*

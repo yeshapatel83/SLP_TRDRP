@@ -1,0 +1,54 @@
+#!/bin/bash
+#SBATCH --export=NONE
+#SBATCH --ntasks=1
+#SBATCH --time=04:00:00
+#SBATCH --job-name=Pool16_0010_ALEC_BAM
+source /usr/usc/python/2.7.8/setup.sh
+echo -n "Running on host: "
+hostname
+echo "ALEC CYP2A6"
+
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:40842953-40850993
+mv Pool19_0010.corrected.fasta temp00_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:40874836-40882778
+mv Pool19_0010.corrected.fasta temp01_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41087907-41088583
+mv Pool19_0010.corrected.fasta temp02_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41088585-41088835
+mv Pool19_0010.corrected.fasta temp03_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41088837-41089109
+mv Pool19_0010.corrected.fasta temp04_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41089111-41089558
+mv Pool19_0010.corrected.fasta temp05_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41089560-41089686
+mv Pool19_0010.corrected.fasta temp06_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41089688-41089724
+mv Pool19_0010.corrected.fasta temp07_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41089726-41089804
+mv Pool19_0010.corrected.fasta temp08_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41089825-41090109
+mv Pool19_0010.corrected.fasta temp09_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41090111-41090273
+mv Pool19_0010.corrected.fasta temp010_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41090275-41090527
+mv Pool19_0010.corrected.fasta temp011_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41090529-41090780
+mv Pool19_0010.corrected.fasta temp012_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41090782-41090973
+mv Pool19_0010.corrected.fasta temp013_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41090975-41091662
+mv Pool19_0010.corrected.fasta temp014_Pool19_0010.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0010.sam -x pacbio_ccs -t chr19:41091664-41091827
+mv Pool19_0010.corrected.fasta temp015_Pool19_0010.corrected.fasta
+
+
+cat temp*0010*>Pool16_0010_corrected.fasta
+echo "re-alignment started"
+/auto/pmd-02/slp/sm_513/bwa/bwa mem -x pacbio -o Pool16_0010_corrected.sam /auto/pmd-02/slp/sm_513/reference/chr19.fa Pool16_0010_corrected.fasta
+echo "conversion to bam file"
+/bin/samtools view -S -u Pool16_0010_corrected.sam | /bin/samtools sort - Pool16_0010_corrected
+echo "indexing bam file"
+/bin/samtools index Pool16_0010_corrected.bam
+echo "End of re-alignment/bam creation"
+
+rm -rf temp*0010*

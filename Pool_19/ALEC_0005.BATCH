@@ -1,0 +1,38 @@
+#!/bin/bash
+#SBATCH --export=NONE
+#SBATCH --ntasks=1
+#SBATCH --time=04:00:00
+#SBATCH --job-name=Pool16_0005_ALEC_BAM
+source /usr/usc/python/2.7.8/setup.sh
+echo -n "Running on host: "
+hostname
+echo "ALEC CYP2A6"
+
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:40842932-40850993
+mv Pool19_0005.corrected.fasta temp00_Pool19_0005.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:40874836-40882778
+mv Pool19_0005.corrected.fasta temp01_Pool19_0005.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:41087907-41088293
+mv Pool19_0005.corrected.fasta temp02_Pool19_0005.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:41088295-41089147
+mv Pool19_0005.corrected.fasta temp03_Pool19_0005.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:41089149-41089782
+mv Pool19_0005.corrected.fasta temp04_Pool19_0005.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:41089784-41089816
+mv Pool19_0005.corrected.fasta temp05_Pool19_0005.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:41089818-41089937
+mv Pool19_0005.corrected.fasta temp06_Pool19_0005.corrected.fasta
+python ../../alec/ALEC/ALEC/ALEC.py -r ../../reference/chr19.fasta -i Pool19_0005.sam -x pacbio_ccs -t chr19:41089939-41089984
+mv Pool19_0005.corrected.fasta temp07_Pool19_0005.corrected.fasta
+
+
+cat temp*0005*>Pool16_0005_corrected.fasta
+echo "re-alignment started"
+/auto/pmd-02/slp/sm_513/bwa/bwa mem -x pacbio -o Pool16_0005_corrected.sam /auto/pmd-02/slp/sm_513/reference/chr19.fa Pool16_0005_corrected.fasta
+echo "conversion to bam file"
+/bin/samtools view -S -u Pool16_0005_corrected.sam | /bin/samtools sort - Pool16_0005_corrected
+echo "indexing bam file"
+/bin/samtools index Pool16_0005_corrected.bam
+echo "End of re-alignment/bam creation"
+
+rm -rf temp*0005*
